@@ -25,3 +25,9 @@
   - Twitch
   - IBM
   - Twitter
+
+- Estrutura do curso
+  - O curso eh dividido em 3 modulos:
+    - Fundamentos da linguagem
+    - Fundamentos Adicionais
+    - Desenvolvimento de uma aplicacao completa
