@@ -44,4 +44,9 @@ func main() {
 	for key, value := range user {
 		fmt.Println(key, value)
 	}
+
+	for {
+		fmt.Println("infinity loop")
+		time.Sleep(time.Second)
+	}
 }
