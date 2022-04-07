@@ -13,17 +13,25 @@ func Generate() *cli.App {
 	app.Name = "command line application"
 	app.Usage = "search IPS and server names on the internet"
 
-	app.Commands = []cli.Command{
-		{
-			Name: "ip",
-			Usage: "IPS lookup of internet addresses",
-			Flags: []cli.Flag{
+	flags :=  []cli.Flag{
 				cli.StringFlag{
 					Name: "host",
 					Value: "devbook.com.br",
 				},
-			},
+			}
+
+	app.Commands = []cli.Command{
+		{
+			Name: "ip",
+			Usage: "IPS lookup of internet addresses",
+			Flags: flags,
 			Action: searchIps,
+		},
+		{
+			Name: "servers",
+			Usage: "search the name servers of internet",
+			Flags: flags,
+			Action: searchServers,
 		},
 	}
 	return app
@@ -40,5 +48,18 @@ func searchIps(c *cli.Context) {
 
 	for _, ip := range ips {
 		fmt.Println(ip)
+	}
+}
+
+func searchServers(c *cli.Context) {
+	host := c.String("host")
+
+	servers, err := net.LookupNS(host)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	for _, server := range servers {
+		fmt.Println(server.Host)
 	}
 }
