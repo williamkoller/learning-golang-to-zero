@@ -6,16 +6,40 @@ import (
 	"github.com/williamkoller/introduction/adresses"
 )
 
+type testAddress struct {
+	addressInsert  string
+	returnExpected string
+}
+
 func TestTypeAdresses(t *testing.T) {
-	adressesTest := "Avenida Paulista"
 
-	typeAdressExpected := "avenida"
+	cenaryTest := []testAddress{
+		{
+			"Rua ABC", "Rua",
+		},
+		{
+			"Avenida Paulista", "Avenida",
+		},
+		{
+			"Rodovia Imigrantes", "Rodovia",
+		},
+		{
+			"Rodovia do Maraja", "Rodovia",
+		},
+		{
+			"Estrada da Graciosa", "Estrada",
+		},
+		{
+			"Estrada dos Bobos", "Estrada",
+		},
+	}
 
-	typeAdresseReceived := adresses.TypeAdresses(adressesTest)
-
-	if typeAdresseReceived != typeAdressExpected {
-		t.Errorf("type received is different to expected! expected %s and received %s",
-			typeAdressExpected,
-			typeAdresseReceived)
+	for _, cenaryT := range cenaryTest {
+		typeOfAddressReceived := adresses.TypeAdresses(cenaryT.addressInsert)
+		if typeOfAddressReceived != cenaryT.returnExpected {
+			t.Errorf("type received is different to expected! expected %s and received %s",
+				typeOfAddressReceived,
+				cenaryT.returnExpected)
+		}
 	}
 }
