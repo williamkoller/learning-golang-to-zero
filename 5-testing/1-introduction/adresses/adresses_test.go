@@ -12,7 +12,7 @@ type testAddress struct {
 }
 
 func TestTypeAdresses(t *testing.T) {
-
+	t.Parallel()
 	cenaryTest := []testAddress{
 		{
 			"Rua ABC", "Rua",
@@ -32,6 +32,9 @@ func TestTypeAdresses(t *testing.T) {
 		{
 			"Estrada dos Bobos", "Estrada",
 		},
+		{
+			"", "type invalid",
+		},
 	}
 
 	for _, cenaryT := range cenaryTest {
@@ -41,5 +44,12 @@ func TestTypeAdresses(t *testing.T) {
 				typeOfAddressReceived,
 				cenaryT.returnExpected)
 		}
+	}
+}
+
+func TestAny(t *testing.T) {
+	t.Parallel()
+	if 1 > 2 {
+		t.Error("Test Fail")
 	}
 }

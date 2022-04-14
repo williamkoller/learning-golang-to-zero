@@ -1,0 +1,7 @@
+mode: set
+github.com/williamkoller/introduction/adresses/adresses.go:6.42,15.41 5 1
+github.com/williamkoller/introduction/adresses/adresses.go:21.2,21.26 1 1
+github.com/williamkoller/introduction/adresses/adresses.go:25.2,25.23 1 1
+github.com/williamkoller/introduction/adresses/adresses.go:15.41,16.39 1 1
+github.com/williamkoller/introduction/adresses/adresses.go:16.39,18.4 1 1
+github.com/williamkoller/introduction/adresses/adresses.go:21.26,23.3 1 1
