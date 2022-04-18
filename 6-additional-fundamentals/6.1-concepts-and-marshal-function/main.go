@@ -30,4 +30,18 @@ func main() {
 
 	fmt.Println(bytes.NewBuffer(dogJSON))
 
+	dogTwo := map[string]string{
+		"name": "Toby",
+		"breed": "Poodle",
+	}
+
+	dogTwoJSON, err := json.Marshal(dogTwo)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(dogTwoJSON)
+	fmt.Println(bytes.NewBuffer(dogTwoJSON))
+
 }
